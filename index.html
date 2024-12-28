@@ -11,6 +11,8 @@
     <div class="container">
         <h2>Menu</h2>
         <button onclick="showSection('customers')">Kelola Pelanggan</button>
+        <button onclick="showSection('categories')">Kelola Kategori</button>
+        <button onclick="showSection('suppliers')">Kelola Supplier</button>
         <button onclick="showSection('products')">Kelola Produk</button>
         <button onclick="showSection('transactions')">Kelola Transaksi</button>
         <button onclick="showSection('reports')">Laporan</button>
@@ -20,21 +22,48 @@
     <div id="customers" class="section">
         <h3>Pelanggan</h3>
         <form id="customerForm">
-            <input type="text" id="customerId" placeholder="ID Pelanggan" required>
             <input type="text" id="customerName" placeholder="Nama Pelanggan" required>
-            <textarea id="customerNotes" placeholder="Keterangan"></textarea>
+            <input type="text" id="customerPhone" placeholder="No Handphone" required>
+            <input type="text" id="customerAddress" placeholder="Alamat" required>
+            <input type="email" id="customerEmail" placeholder="Email" required>
             <button type="button" onclick="addCustomer()">Tambah</button>
         </form>
         <div id="customerList"></div>
+    </div>
+
+    <!-- Kategori Section -->
+    <div id="categories" class="section">
+        <h3>Kategori</h3>
+        <form id="categoryForm">
+            <input type="text" id="categoryName" placeholder="Nama Kategori" required>
+            <button type="button" onclick="addCategory()">Tambah</button>
+        </form>
+        <div id="categoryList"></div>
+    </div>
+
+    <!-- Supplier Section -->
+    <div id="suppliers" class="section">
+        <h3>Supplier</h3>
+        <form id="supplierForm">
+            <input type="text" id="supplierName" placeholder="Nama Supplier" required>
+            <input type="text" id="supplierCompany" placeholder="Nama PT" required>
+            <input type="text" id="supplierPhone" placeholder="No Handphone" required>
+            <input type="text" id="supplierAddress" placeholder="Alamat" required>
+            <button type="button" onclick="addSupplier()">Tambah</button>
+        </form>
+        <div id="supplierList"></div>
     </div>
 
     <!-- Produk Section -->
     <div id="products" class="section">
         <h3>Produk</h3>
         <form id="productForm">
-            <input type="text" id="productId" placeholder="ID Produk" required>
             <input type="text" id="productName" placeholder="Nama Produk" required>
-            <textarea id="productNotes" placeholder="Keterangan"></textarea>
+            <input type="text" id="productItem" placeholder="Item" required>
+            <select id="productCategory"></select>
+            <select id="productSupplier"></select>
+            <input type="number" id="productPrice" placeholder="Harga" required>
+            <input type="number" id="productStock" placeholder="Stok" required>
             <button type="button" onclick="addProduct()">Tambah</button>
         </form>
         <div id="productList"></div>
@@ -44,9 +73,15 @@
     <div id="transactions" class="section">
         <h3>Transaksi</h3>
         <form id="transactionForm">
-            <input type="text" id="transactionId" placeholder="ID Transaksi" required>
-            <input type="text" id="customerForTransaction" placeholder="ID Pelanggan" required>
-            <input type="text" id="productForTransaction" placeholder="ID Produk" required>
+            <select id="transactionProduct"></select>
+            <input type="number" id="transactionQuantity" placeholder="Jumlah" required>
+            <input type="number" id="transactionPayment" placeholder="Bayar" required>
+            <input type="number" id="transactionDiscount" placeholder="Diskon (%)">
+            <select id="transactionMethod">
+                <option value="cash">Cash</option>
+                <option value="transfer">Transfer</option>
+                <option value="kotrabon">Kotrabon</option>
+            </select>
             <button type="button" onclick="addTransaction()">Tambah</button>
         </form>
         <div id="transactionList"></div>
