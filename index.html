@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kasir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Aplikasi Kasir</h1>
+    <div class="container">
+        <h2>Menu</h2>
+        <button onclick="showSection('customers')">Kelola Pelanggan</button>
+        <button onclick="showSection('products')">Kelola Produk</button>
+        <button onclick="showSection('transactions')">Kelola Transaksi</button>
+        <button onclick="showSection('reports')">Laporan</button>
+    </div>
+
+    <!-- Pelanggan Section -->
+    <div id="customers" class="section">
+        <h3>Pelanggan</h3>
+        <form id="customerForm">
+            <input type="text" id="customerId" placeholder="ID Pelanggan" required>
+            <input type="text" id="customerName" placeholder="Nama Pelanggan" required>
+            <textarea id="customerNotes" placeholder="Keterangan"></textarea>
+            <button type="button" onclick="addCustomer()">Tambah</button>
+        </form>
+        <div id="customerList"></div>
+    </div>
+
+    <!-- Produk Section -->
+    <div id="products" class="section">
+        <h3>Produk</h3>
+        <form id="productForm">
+            <input type="text" id="productId" placeholder="ID Produk" required>
+            <input type="text" id="productName" placeholder="Nama Produk" required>
+            <textarea id="productNotes" placeholder="Keterangan"></textarea>
+            <button type="button" onclick="addProduct()">Tambah</button>
+        </form>
+        <div id="productList"></div>
+    </div>
+
+    <!-- Transaksi Section -->
+    <div id="transactions" class="section">
+        <h3>Transaksi</h3>
+        <form id="transactionForm">
+            <input type="text" id="transactionId" placeholder="ID Transaksi" required>
+            <input type="text" id="customerForTransaction" placeholder="ID Pelanggan" required>
+            <input type="text" id="productForTransaction" placeholder="ID Produk" required>
+            <button type="button" onclick="addTransaction()">Tambah</button>
+        </form>
+        <div id="transactionList"></div>
+    </div>
+
+    <!-- Laporan Section -->
+    <div id="reports" class="section">
+        <h3>Laporan</h3>
+        <button onclick="generateReport()">Buat Laporan</button>
+        <div id="reportList"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
